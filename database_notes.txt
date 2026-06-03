@@ -1,0 +1,196 @@
+*** Important
+# We shall do this later
+
+MySql (server, workbench, router, examples and samples)
+vs code
+git
+git desktop
+mongoDb (server, compass, command line tools, shell)
+# mongoDb Atlas (cloud database)
+
+
+Theory (RDBMS, SQl, Sub languages, data types, libraries)
+ORDBMS
+Basic Queries
+*** Tricky Queries (Important for placements/interviews)
+*** Intricacies/hidden/important topics (groupby, joins)
+PLSQL (stored procedurs, functions, indexes, views, cursors, triggers)
+Implement a project
+MongoDb as NOSQL (Not only SQL)
+
+git repo
+PAT
+clone repo with PAT
+
+
+Name all the folders with small letters and seperate the words with underscore (snake case)
+Create a folder named "software" in C drive
+Create one folder each for every software/app you download
+Later from here, double click the installer file/.msi file/setup file and install
+NOTE:
+	Some Apps when installed like (vs code, git etc.) after they are installed, the path of the Apps of the software are automatically added to the environment variables. Some are not (examples: mysql, sometimes python etc.)
+	
+
+
+list2 = sorted(list1)
+list1.sort()
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+Steps to create Personal Access Token:
+Click on profile icon (top right corner)
+Click on settings
+In new window -> scroll down and click on developer settings (bottom left)
+Next wondow -> left side -> Click personal access tokens -> tokens classic
+Next window-> on top -> click the button -> generate new token -> classic
+Note: This PAT I created for my learning of all the technologies for my placements and beyond.
+Expiry: No Expiry
+Select the 1st checkbox Repo
+scroll down -> Click generate token
+Copy the PAT
+Mail the PAT to your self
+mail subject: git pat    mail body: git_pat
+
+
+Git Configuration:
+
+$> git config --global user.name "neelmyna"
+$> git config --global user.email "nithin@mtdn.co.in"
+
+
+$> git clone github.com/neelmyna/vce_db_jun26
+
+
+Template to clone using the PAT:
+$> git clone https://PAT@github.com/UserName/Repo_Name
+
+
+Customer
+	id
+	name
+	gender
+	phone_number
+	email
+	address
+	type
+	cibil
+
+BankAccount
+	account_number
+	balance
+	type
+	customer_id
+	
+	
+Transaction
+	id
+	amount
+	type
+	datetime
+	account_id
+-----------------------------------------------------------------------
+SQL Commands:
+
+show databases;
+// This command lists all the database names
+
+select database();
+// This command lists the current working DB.
+// This command lists the DB inside which we are right now.
+NOTE: Observe that database() here is a function. And in previous command, "databases" is a keyword.
+
+create database pavan_db;
+// creates a new DB with name pavan_db if it does exist, otherwise error. To suppress the error use the command:
+create database IF NOT EXISTS pavan_db;
+
+show tables;
+// lists the tables from the DB were currently in.
+
+use DB_NAME;
+use pavan_db;
+// This command is used to switch into a specific DB
+
+Lets take an entity: FLIGHT
+Attributes: id, airline, flight_code, source, destination, fare, duration, capacity
+
+SUN-Microsystems: Java
+byte, short, int, long
+
+Oracle: MySQL
+tinyint, smallint, int, bigint
+
+
+Naming Standard for entity:
+In programming:  class Flight  	// Python/C++/Java
+In Database:	table flights	// sql/nosql
+
+Synonymns: table/relation/model
+
+ATTRIBUTE	DATATYPE	CONTRAINTS
+id			int			primary key, auto_increment
+airline		varchar(64)	not null
+flight_code	varchar(7)	not null
+source		varchar(32)	
+destination	varchar(32)
+fare		float		not null, default(1000)
+duration	float		
+capacity	int
+
+create table flights(id int primary key auto_increment, airline varchar(64)  not null, flight_code	varchar(7) not null, source		varchar(32)	destination	varchar(32), fare float	not null, default(1000)
+duration float, capacity int);
+
+
+ALTER TABLE FLIGHTS:
+change datatype of capacity from int to short
+add not null constraints to source and destination
+add check constrint to airline coide: check(XX-YYYY) XX is alphanumeric and YYYY is 1 to 4 digits number.
+
+Drop the table flights and create again with the rules given above (alter table flights) and also change the id SEED and INCREMENT to 101, 2
+
+
+insert into flights(airline, flight_code, source, destination, fare, duration, capacity) values(indigo, '6e-1223', 'hyderabad', 'amritsar', 5725, 2.5, 180);
+
+insert into flights(airline, flight_code, source, destination, fare, duration) values(indigo, '6e-1223', 'hyderabad', 'amritsar', 5725, 2.5);
+
+insert into flights(airline, flight_code, source, destination, fare) values(indigo, '6e-1223', 'hyderabad', 'amritsar', 5725);
+
+insert into flights(airline, flight_code, source, destination, fare, duration, capacity) values(indigo, '6e-1223', 'hyderabad', 'amritsar', 5725, 2.5, 180);
+
+
+IMPORTANT:
+Difference between
+delete, drop and truncate
+
+
+1. Print all the data(columns) and all the rows:
+select * from flights;
+
+2. Print specific data/columns from the table flights:
+select flight-code, source and destination from flights;
+
+3. Select the flights that fly from Hyderabad.
+select * from flights where source = 'hyderabad';
+
+4. Select the flights which has duration less than 2 hours.
+select * from flights where duration < 2;
+
+5. Select the flights which have fare greater than 10,000.
+select * from flights where fare > 10000;
+
+6. Select the flights of a specific airline (say air_india)
+select * from flights where airline = 'air_india'
+
+7. Select the flight that has least fare
+select * from flights where fare in (select min(fare) from flights);
+select * from flights where fare = (select min(fare) from flights);
+select * from flights order by fare limit 1;
+
+8. Select the flight that has longest duration.
+select * from flights order by duration desc limit 1;
+
+9. Print the flight details in decresing order of the duration.
+select * from flights order by duration desc;
+
+10.Print the flight details in ascending order of the fare.
+select * from flights order by fare;
+select * from flights order by fare asc;
