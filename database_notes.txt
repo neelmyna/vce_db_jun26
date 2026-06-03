@@ -194,3 +194,56 @@ select * from flights order by duration desc;
 10.Print the flight details in ascending order of the fare.
 select * from flights order by fare;
 select * from flights order by fare asc;
+
+11. List the flights whose fare is not available.
+select * from flights where fare = null;
+// compares the value in/of fare with the value in the variable null.
+select * from flights where fare = 'null';
+// compares the value in fare with string literal 'null'
+
+select * from flights where fare is null;
+// Checks if the fare is null (i.e. its value is empty)
+
+select * from flights where fare is 'null';
+// Error
+
+12. Remove the fare of the flights with IDs 3 and 5.
+update flights set fare = null where id = 3 or id = 5;
+
+13. Print all the flights whose source starts from 's'
+select * from flights where source like 's%';
+
+14. List flights in ascending order of duration and descending order of fare.
+select * from flights order by duration, order by fare desc;
+
+15. Print the fare of the flights as "Fare not Avaiable" where the fare is empty.
+select id, airline, code, source, destination, nvl(fare, 'Fare Not Available') as Fare, duration from flights;
+
+16. Display the airline and its code whose duration is not updated/available.
+select * from flights where duration is null;
+
+17. Display airline, code from flights. First letter of airline must be capitalized and Code must be printed in upper case.
+
+indigo
+Indigo
+
+Get only the 1st letter from the string (airline), say Y
+make it upper case, say Y
+Get the leters from airline (string) other than the 1st letter, say Z
+Now concat Y and Z and print it as o/p
+
+select concat( upper(left(airline, 1)), lower(right(airline, char_length(airline)-1))) as Airline, upper(code) as Code from flights;
+
+select concat( upper(left(airline, 1)), lower(substring(airline, 1))) as Airline, upper(code) as Code from flights;
+
+18. Display only 1st 3 characters of the Airline and also print its code.
+
+19. Print all the details of the flights in upper case.
+
+20. Print the airline, code and the source and destination together as route.
+select airline, code, concat(source, '-', destination) as 'Route' from flights;
+
+[20, 40]  Closed interval, Both end points are included
+(10, 35) Open interval, 10 and 35 are not included
+(10, 50] Left Open. The range is 11 to 50
+
