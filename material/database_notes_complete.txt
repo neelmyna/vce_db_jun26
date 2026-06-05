@@ -426,7 +426,7 @@ select upper(bookname) from books
 
 select bookid, lower(bookname) as "BOOK NAME " from books
 
-select bookid, upper(left(bookname, 4)) as "Book Name" from books
+select id, upper(left(title, 4)) as "Book Name" from books
 
 select bookid, reverse(bookname) as REVERSE_NAME from books
 ----------------------------------------------------------
@@ -778,18 +778,18 @@ select dept, round(avg(empsal), 0) as AVG_SAL from employee group by dept order 
 A view is a STORED NAMED QUERY
 The view itself acts like a table.
 Views are often useful when frequently you want to use same types of query
-However, a new table is not created in the disk (Permanenet storage)
+However, a new table is not created in the disk (Permanent storage)
 */
 select * from books
 
 -- Example to create a view
-create view mini_book_view1
+create view book_view1
 as
-	select bookid, bookname, price, booklanguage, category from books
+	select bookid, bookname, price, language, category from books;
 
-select * from mini_book_view
+select * from book_view1
 
-select SUM(price) as total_price FROM mini_book_view
+select SUM(price) as total_price FROM book_view1
 
 ALTER VIEW MINI_BOOK_VIEW1
 AS
