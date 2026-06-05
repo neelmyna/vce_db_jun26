@@ -232,13 +232,13 @@ make it upper case, say Y
 Get the leters from airline (string) other than the 1st letter, say Z
 Now concat Y and Z and print it as o/p
 
-select concat( upper(left(airline, 1)), lower(right(airline, char_length(airline)-1))) as Airline, upper(code) as Code from flights;
-
 select concat( upper(left(airline, 1)), lower(substring(airline, 1))) as Airline, upper(code) as Code from flights;
 
 18. Display only 1st 3 characters of the Airline and also print its code.
 
+
 19. Print all the details of the flights in upper case.
+
 
 20. Print the airline, code and the source and destination together as route.
 select airline, code, concat(source, '-', destination) as 'Route' from flights;
@@ -246,4 +246,23 @@ select airline, code, concat(source, '-', destination) as 'Route' from flights;
 [20, 40]  Closed interval, Both end points are included
 (10, 35) Open interval, 10 and 35 are not included
 (10, 50] Left Open. The range is 11 to 50
+
+21. Print the total fare of flights of each of the airline.
+select airline, sum(fare) as "Total Fare" from flights groupby airline;
+
+22. Count the number of routes on which each airline provides the services.
+
+selct airline, count(*) as "number of routes" from flights group by airline;
+
+select airline, count(distinct (source || '-' || destination) as "number of routes" from flights group by airline;
+
+23. For a given route, print the average price of the route of every airline.
+select airline, avg(fare) as "Average Fare" from flights group by airline;
+
+
+
+24. For each of the airline, print the minimum fare they got to offer the customers.
+
+
+25. For each of the airline, print the maximum duration of all the routes they fly.
 
