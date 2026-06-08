@@ -1,0 +1,29 @@
+Trainer Repo URL: https://github.com/neelmyna/vce_db_jun26
+
+1. create a folder named "software" in  C drive
+2. Inside software folder create folders:
+	1. notepad_pp
+		https://notepad-plus-plus.org/downloads/v8.9.6.2/
+	2. mongodb (server, shell, compass, commandline tools)
+		MongoDB Command Line Database Tools Download
+		https://www.mongodb.com/try/download/compass
+		https://www.mongodb.com/try/download/community
+	3. mysql (server, shell, workbench, routers, samples)
+		https://www.mysql.com/downloads/
+		Follow the steps carefully given in seperate file
+		C:\Program Files\MySQL\MySQL Server 8.0\bin
+	4. vs_code
+		https://code.visualstudio.com/download
+	5. git
+		https://git-scm.com/install/windows
+	6. git_desktop
+		https://desktop.github.com/download/
+	7. python
+		https://www.python.org/downloads/
+	8. node
+		https://nodejs.org/en/download
+
+3. Download all the setup/installer/.msi files from internet
+4. Cut and paste the setup files into respective folders inside software folder in C drive
+5. Now double click each one of them one by one and install. While installing watch out for the path where they are installed.
+6. 
