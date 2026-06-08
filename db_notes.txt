@@ -26,4 +26,4 @@ Trainer Repo URL: https://github.com/neelmyna/vce_db_jun26
 3. Download all the setup/installer/.msi files from internet
 4. Cut and paste the setup files into respective folders inside software folder in C drive
 5. Now double click each one of them one by one and install. While installing watch out for the path where they are installed.
-6. 
+6. Add the Path of mysql, mongodb etc.. to environment variables
