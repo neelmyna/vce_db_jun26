@@ -22,8 +22,88 @@ Trainer Repo URL: https://github.com/neelmyna/vce_db_jun26
 		https://www.python.org/downloads/
 	8. node
 		https://nodejs.org/en/download
-
 3. Download all the setup/installer/.msi files from internet
 4. Cut and paste the setup files into respective folders inside software folder in C drive
 5. Now double click each one of them one by one and install. While installing watch out for the path where they are installed.
 6. Add the Path of mysql, mongodb etc.. to environment variables
+7. 
+
+
+JAVA		MYSQL
+byte		tinyint
+short		smallint
+int			int
+long		bigint
+
+To connect to MySQL via command prompt:
+
+$> mysql -u root -p
+Enter password:
+
+mysql> show databases;
+This command displays the available databases
+
+mysql> select database();
+To display the current DB name
+
+mysql> select database() as "Current Database";
+To display the current DB name with given alias as the heading
+
+mysql> create database nithin_db;
+
+mysql> create database IF NOT EXISTS nithin_db;
+To supress the error message we use is not exists. It ignores the command if the DB already exist.
+
+mysql> use nithin_db;
+To switch to an existing DB. In case if the DB does not exist, it will give error.
+
+mysql>drop database dummy_db;
+This deletes a DB.
+
+create table employees(
+	id int primary key auto_increment,
+	name varchar(64) not null,
+	designation varchar(64),
+	salary float,
+	commission float default(0),
+	phone bigint unique,
+	location varchar(64)
+);
+
+create table flights(
+	id int primary key auto_increment,
+	airline varchar(64) not null,
+	code varchar(7) check(%[A-Z/0-9]-[0-9]),
+	source varchar(64) not null,
+	destination varchar(64) not null,
+	fare float check(fare >= 1000 && fare <= 99999) default (1000),
+	duration float,
+	capacity smallint
+);
+
+
+$> select * from employees;
+display all the rows of the table with all the data/columns.
+
+$> drop table employees;
+delete the table with all the data/rows and meta data along with auto_increment	 data (everything about the table).
+
+$> delete from employees;
+Delete all rows from the table. However the meta data is not deleted and auto_increment data is not reset.
+
+$> desc employees;
+Displays the meta data of the table employees.
+
+$> alter table employees add column years_of_experience   
+
+insert into employees(name, designation, salary, commission, phone, location, years_of_experience) values('nithin', 'trainer', 199000, 23000, 9900990000, 'mysuru', 15);
+
+insert into employees(name, designation, salary, commission, phone, location) values('mahesh', 'developer', 199000, 23000, 9900990000, 'mysuru');
+
+insert into employees(name, designation, salary, phone, years_of_experience) values('nikita', 'tester', 199000, 9900990000, 15);
+
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+
+
