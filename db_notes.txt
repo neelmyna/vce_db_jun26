@@ -146,8 +146,12 @@ select * from employees where designation = 'developer' and location = 'hyderaba
 
 12. List employee names in upper case which start from 'a' in lower case if it starts from 's'.
 
+select upper(name) as 'Name' from employees where name like 'a%'
+union all
+select lower(name) as 'Name' from employees where name like 's%';
 
 13. List id and 1st 4 letters of the employee names and print them in upper case.
 select id, upper(left(name, 4)) as "Employee Name" from employees; 
 
-14. 
+14. list employee names with 1st letter capitalized.
+
