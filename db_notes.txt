@@ -104,3 +104,50 @@ insert into employees(name, designation, salary, phone, years_of_experience) val
 
 Test1-Link:
 https://forms.gle/dotFhJr8ZNGrjon67
+  
+1. List all the rows with all data in the table.
+select * from employees;
+
+2. List the 1st 10 rows in the table.
+select * from employees limit 10;
+
+3. List last 5 rows in the table.
+select * from employees order by id desc limit 5;
+
+4. List the rows of employees in order of their experience.
+select * from employees order by years_of_experience;
+
+5. List the rows of employees in decreasing order of their salaries.
+select * from employees order by salary desc;
+
+6. List the employee names and theirs Id whose designation is not available.
+
+select id, name from employees where designation = null;
+select id, name from employees where designation = 'null';
+select id, name from employees where designation is null;
+select id, name from employees where designation is 'null';
+
+7. List employees whose name starts from A
+select * from employees where name like 'a%'
+
+8. List employees whose name starts with s and ends with s.
+select * from employees where name like 's%s'
+
+9. List the employees who have not received the commission.
+select * from employees where commission is null;
+
+10. List the names of the employees with highest and lowest salaries.
+select max(salary) as "Maximum Salary", name where name =(select name from employees where salary = max(salary))
+union all
+select min(salary) as "Minimum Salary", name from employees where name = (selct name from employees where salary = min(salary));
+
+11. List the employees who belong to hyderabad and work as developers.
+select * from employees where designation = 'developer' and location = 'hyderabad';
+
+12. List employee names in upper case which start from 'a' in lower case if it starts from 's'.
+
+
+13. List id and 1st 4 letters of the employee names and print them in upper case.
+select id, upper(left(name, 4)) as "Employee Name" from employees; 
+
+14. 
