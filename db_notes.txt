@@ -102,8 +102,5 @@ insert into employees(name, designation, salary, commission, phone, location) va
 
 insert into employees(name, designation, salary, phone, years_of_experience) values('nikita', 'tester', 199000, 9900990000, 15);
 
-
-C:\Program Files\MySQL\MySQL Server 8.0\bin
-
-
-
+Test1-Link:
+https://forms.gle/dotFhJr8ZNGrjon67
