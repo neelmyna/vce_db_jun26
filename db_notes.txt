@@ -154,4 +154,44 @@ select lower(name) as 'Name' from employees where name like 's%';
 select id, upper(left(name, 4)) as "Employee Name" from employees; 
 
 14. list employee names with 1st letter capitalized.
+select id, concat(upper(left(name, 1)), lower(right(name, length(name)-1))) as Name from employees;
 
+select id, concat(upper(left(name, 1)), lower(substring(name, 2))) as Name from employees;
+NOTE: The substring() takes position of the character in the string and not the index. Thus 1st character is at position 1 and so on.
+
+15. Print name and location of employees in reverse
+
+16. List employee id and name with the ID as minimum 4 digit number papped with zeros on the left.
+Lpad
+
+int salary = 345;
+printf("%d", salary); // 345
+printf("%5d", salary); // __345
+printf("%06d", salary); // 000345  
+printf("%-5d", salary); // 345__
+printf("%-05d", salary); // 345__
+printf("%-2d", salary); // 345
+
+17. Print id, name and salary plus commission as "Total Salary" of all employees
+
+18. Print id, name, salary, commission of all employees. If employee has earned no commission, then print "no commission earned"
+
+19-a. Add column joining_date to employees with default date as current date.
+alter table employees add joining date date default(curdate());
+yyyy-mm-dd
+
+19-b. Add date to all the existing rows of the employees table.
+
+20. Print employee id, name of the employees who have joined the company after 2025
+
+21. Print employee id, name of the employees who have joined the company between 2020 and 2025
+
+22. Count the number of employees who have less than 2 years of experience.
+
+23. Print the number of employees from hyderabad and bengaluru and pune. (Hint: Use group by, in operator and having clause)
+
+24. Print the average salary of employees of each designation.
+
+25.  Print the minimum salaries of developers and testers.
+
+26. 
