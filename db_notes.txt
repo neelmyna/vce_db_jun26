@@ -191,7 +191,50 @@ yyyy-mm-dd
 23. Print the number of employees from hyderabad and bengaluru and pune. (Hint: Use group by, in operator and having clause)
 
 24. Print the average salary of employees of each designation.
+select avg(salary) as "Average Salary" from employees group by designation;
 
 25.  Print the minimum salaries of developers and testers.
+select min(salary) as "Minimum Salary" from employees group by designation having designation in['developer', 'tester'];
 
-26. 
+26. Print name, designation, date_of_joining of employees with date as dd-mm-yyyy.
+Hint: Use date_format()
+
+27. Print name, designation, date_of_joining of employees with only month name and year. Example June-2023,  May-2022
+Hint: Use date_format()
+
+28. 
+
+------------------------------------------------------------------
+project: gaming_club
+
+members:
+id 			int primary key auto_increment
+name		varchar(64) not null
+gender		boolean not null
+age			smallint
+phone		varchar(10) check (starts with 6 to 9, 10 digits) unique
+balance		float check(balance >= 0 && balance <= 10000)
+
+recharges:
+id			int primary key auto_increment
+amount		float check(amount between 200 and 2000)
+member_id 	int foreign key references members(id) cascade on update, cascade on delete)
+date		date default(curdate())
+
+games
+id					int primary key auto_increment
+name				varchar(32) not null unique
+amount_per_person	float not null
+duration			float
+description			varchar(1000)
+
+transactions
+id			int primary key auto_increment
+member_id	int foreign key references members(id) cascade on update, cascade on delete)
+game_id		int foreign key references games(id) cascade on update, cascade on delete)
+amount		float check(must be multiple of game amount)
+
+
+[20, 60]	closed interval
+(15, 55)	
+(15, 80]
