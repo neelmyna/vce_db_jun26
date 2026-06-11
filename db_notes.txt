@@ -238,3 +238,4 @@ amount		float check(must be multiple of game amount)
 [20, 60]	closed interval
 (15, 55)	
 (15, 80]
+
