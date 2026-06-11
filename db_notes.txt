@@ -336,3 +336,30 @@ BEGIN
     COMMIT;
 END
 ------------------------------------------------------
+CREATE DEFINER=`root`@`localhost` PROCEDURE `play_game`(
+	IN member_id int,
+    IN game_id int,
+    IN number_of_players int
+)
+BEGIN
+    declare game_amount float;
+    declare transaction_amount float;
+    declare member_balance float;
+    BEGIN
+        ROLLBACK;
+    END;
+    START TRANSACTION;
+	select price into game_amount from games where id = game_id;
+	
+    set transaction_amount = game_amount * number_of_players;
+    select balance into member_balance from members where id = member_id;
+    
+    if transaction_amount <= member_balance
+    then
+        insert into transactions(member_id, game_id, amount) values(member_id, game_id, transaction_amount);
+    update members set balance = balance - transaction_amount where id = member_id;
+    else
+		select "Insufficient Balance" as "Error Msg";
+	end if;
+    commit;
+END
